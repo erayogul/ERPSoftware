@@ -19,25 +19,25 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Type</th>
+                      <th>Registred At</th>
                       <th>Modify</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
+                    <tr  v-for="user in users" :key="user.id">
+                      <td>{{user.id}}</td>
+                      <td>{{user.name}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.type}}</td>
+                      <td>{{user.created_at}}</td>
                       <td>
-
                         <a href="#">
                           <i class="fa fa-edit blue"></i>
                         </a>
-/
-                         <a href="#">
+                          /
+                        <a href="#">
                           <i class="fa fa-trash red"></i>
                         </a>
-
                       </td>
                     </tr>
                   </tbody>
@@ -86,22 +86,29 @@
         <has-error :form="form" field="bio"></has-error>
 
         
-        <label>Type</label>
-        <select v-model="form.type"  name="type" id="type" class="form-control" :class="{
-          'is-invalid': form.errors.has('type')}">
-          <option value="">Select User Role</option>
-          <option value="">Admin</option>
-          <option value="">Standart</option>
-          <option value="">Author</option>
-        </select>
-        <has-error :form="form" field="type"></has-error>
+        <div class="form-group">
+            <select name="type" v-model="form.type" id="type" class="form-control" :class="{ 'is-invalid': form.errors.has('type') }">
+                <option value="">Select User Role</option>
+                <option value="admin">Admin</option>
+                <option value="user">Standard User</option>
+                <option value="author">Author</option>
+              </select>
+            <has-error :form="form" field="type"></has-error>
+         </div>
+
+        <div class="form-group">
+          <input v-model="form.password" type="password"
+          name="password" id="password"
+          class="form-control" :class="{'is-invalid':form.errors.has('password')}">
+          <has-error :form="form" field="password"></has-error>
+        </div>
 
 
     </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Create</button>
+        <button type="button" @click='loadUsers' class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Create</button>
       </div>
       </form>
     </div>
@@ -114,6 +121,7 @@
     export default {
       data(){
         return{
+          users : {},
           form: new Form({
             name: '',
             email:'',
@@ -125,12 +133,19 @@
         }
       },
       methods:{
+        loadUsers(){
+          console.log('Load user');
+         // axios.get('api/user').then(({data})  => (this.users = data.data));
+          axios.get('api/user').then(function (response) {console.log(response); })
+          //console.log(this.users);
+        },
+
         createUser(){
           this.form.post('api/user')
         }
       },
-        mounted() {
-            console.log('Component mounted.')
+        created() {
+            this.loadUsers();
         }
     }
 </script>
