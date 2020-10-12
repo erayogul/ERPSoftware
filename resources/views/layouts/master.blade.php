@@ -105,6 +105,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </router-link>
                 </a>
               </li>
+              <li class="nav-item">
+                <router-link to="/usertest" class="nav-link ">
+                  <i class="fas fa-users nav-icon"></i>
+                  <p>Userstest</p>
+                  </router-link>
+                </a>
+              </li>
 
             </ul>
           </li>

@@ -16,13 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //return['fSDFASDG'];
-        //return User::latest()->paginate(10);
-        //return response()->json([$request->all()]);
-        $posts=Post::all();
-        return $posts;
+        return User::latest()->paginate(100);
 
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -59,7 +57,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return['message'=>'I have data'];
     }
 
     /**
@@ -84,7 +82,7 @@ class UserController extends Controller
     {
         //
     }
-    public function eray(){
-        
+    public function fonksiyon(){
+        return User::latest()->paginate(10);
     }
 }

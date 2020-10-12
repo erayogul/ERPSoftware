@@ -118,6 +118,7 @@
 </template>
 
 <script>
+import axios from 'axios'
     export default {
       data(){
         return{
@@ -135,17 +136,20 @@
       methods:{
         loadUsers(){
           console.log('Load user');
-         // axios.get('api/user').then(({data})  => (this.users = data.data));
-          axios.get('api/user').then(function (response) {console.log(response); })
-          //console.log(this.users);
+          axios.get("api/user").then(({data})  => (this.users = data.data));
+          /*axios.get('api/user').then(function(response){ console.log(response); });
+          var self = this; axios.get('api/user').then(({data})  => (this.users = data.data));
+          axios.get('api/user').then(response => console.log(response));*/
         },
-
+      
         createUser(){
           this.form.post('api/user')
         }
       },
-        created() {
+        mounted() {
             this.loadUsers();
+            //var self = this; axios.get('api/user').then(function(response){ console.log(response); self.skills = response.data; });
         }
+
     }
 </script>
