@@ -1,5 +1,74 @@
 <template>
   <div class="container">
+
+    <div class="row mt-3">
+      <div class="col-md-15">
+
+      <!-- Default box -->
+      <div class="card card-solid">
+        <div class="card-body pb-0">
+          <div  class="row d-flex align-items-stretch">
+            <div  v-for="user in users" :key="user.id" class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+              <div class="card bg-light">
+                <div class="card-header text-muted border-bottom-0">
+                  Digital Strategist
+                </div>
+                <div style="margin-top:5px;" class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="lead"><b>{{ user.name }}</b></h2>
+                      <p class="text-muted text-sm"><b>Role: </b> {{ user.type | upText }} </p>
+                      <ul class="ml-4 mb-0 fa-ul text-muted">
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      </ul>
+                    </div>
+                    <div class="col-5 text-center">
+                      <img style="margin-top:25px;" src="/img/profile.png" alt="" class="img-circle img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-center">
+                    <a href="#" class="btn btn-sm btn-primary">
+                      <i class="fas fa-user"></i> View Profile
+                    </a>
+                    <a href="#"  @click="editModal(user)" class="btn btn-sm btn-danger">
+                      <i class="fas fa-user"></i> Edit
+                    </a>
+                    <a href="#" @click="deleteUser(user.id)" class="btn btn-sm bg-teal">
+                      <i class="fas fa-comments"></i> Delete
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          <nav aria-label="Contacts Page Navigation">
+            <ul class="pagination justify-content-center m-0">
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item"><a class="page-link" href="#">6</a></li>
+              <li class="page-item"><a class="page-link" href="#">7</a></li>
+              <li class="page-item"><a class="page-link" href="#">8</a></li>
+            </ul>
+          </nav>
+        </div>
+        <!-- /.card-footer -->
+      </div>
+      <!-- /.card -->
+
+
+
+              </div>
+        </div>
+<!-- fhdrhth 
     <div class="row mt-5">
       <div class="col-md-12">
         <div class="card">
@@ -12,7 +81,7 @@
               </button>
             </div>
           </div>
-          <!-- /.card-header -->
+ 
           <div class="card-body table-responsive p-0">
             <table class="table table-hover">
               <thead>
@@ -22,7 +91,7 @@
                   <th>Email</th>
                   <th>Type</th>
                   <th>Registred At</th>
-                  <th>Modify</th>
+                  <th v-if="$gate.isAdmin()" >Modify</th>
                 </tr>
               </thead>
               <tbody>
@@ -32,8 +101,8 @@
                   <td>{{ user.email }}</td>
                   <td>{{ user.type | upText }}</td>
                   <td>{{ user.created_at | myDate }}</td>
-                  <td>
-                    <a href="#" @click="editModal(user)">
+                  <td v-if="$gate.isAdmin()">
+                    <a  href="#" @click="editModal(user)">
                       <i class="fa fa-edit blue"></i>
                     </a>
                     /
@@ -45,11 +114,12 @@
               </tbody>
             </table>
           </div>
-          <!-- /.card-body -->
+
         </div>
-        <!-- /.card -->
+
       </div>
     </div>
+-->
 
     <!-- Modal -->
     <div
@@ -243,7 +313,9 @@ export default {
 
     loadUsers() {
       //console.log('Load user');
+      if(this.$gate.isAdmin()){
       axios.get("api/user").then(({ data }) => (this.users = data.data));
+      }
     },
 
     createUser() {
