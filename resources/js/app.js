@@ -53,7 +53,7 @@ Vue.use(VueProgressBar, {
 
 const routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue').default },
-    { path: '/profile', component: require('./components/Profile.vue').default },
+    { path: '/profile:id' ,name: 'profile',  component: require('./components/Profile.vue').default },
     { path: '/users', component: require('./components/Users.vue').default },
     { path: '/developer', component: require('./components/Developer.vue').default },
     { path: '/notfound', component: require('./components/NotFound.vue').default },
@@ -68,7 +68,7 @@ const router = new VueRouter({
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.filter('upText', function(text){
-  return text.charAt(0).toUpperCase() + text.slice(1);
+  //return text.charAt(0).toUpperCase() + text.slice(1);
 });
 
 Vue.filter('myDate', function(created){

@@ -3,29 +3,34 @@
 
     <div class="row mt-3">
       <div class="col-md-15">
-
+        
       <!-- Default box -->
       <div class="card card-solid">
         <div class="card-body pb-0">
+
+          <div class="card-tools" style="margin:10px;">
+              <button class="btn btn-success" @click="newModal">
+                <i class="fas fa-user-plus"></i>  
+               Creat Employee 
+              </button>
+          </div>
+
           <div  class="row d-flex align-items-stretch">
             <div  v-for="user in users" :key="user.id" class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
               <div class="card bg-light">
                 <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
+                 <div> <b style="font-size:large;" > {{ user.name }} {{ user.surname }}  </b></div>
                 </div>
                 <div style="margin-top:5px;" class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>{{ user.name }}</b></h2>
-                      <p class="text-muted text-sm"><b>Role: </b> {{ user.type | upText }} </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
+
                     </div>
-                    <div class="col-5 text-center">
+                    <center>
+                    <div class="col-8 text-center">
                       <img style="margin-top:25px;" src="/img/profile.png" alt="" class="img-circle img-fluid">
                     </div>
+                    </center>
                   </div>
                 </div>
                 <div class="card-footer">
@@ -33,10 +38,12 @@
                     <a href="#" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> View Profile
                     </a>
-                    <a href="#"  @click="editModal(user)" class="btn btn-sm btn-danger">
+                    <router-link :to="{ name: 'profile', params: { id: user.employee_id }}">
+                    <div href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-user"></i> Edit
-                    </a>
-                    <a href="#" @click="deleteUser(user.id)" class="btn btn-sm bg-teal">
+                    </div>
+                    </router-link>
+                    <a href="#" @click="deleteUser(user.id)" class="btn btn-sm btn-danger">
                       <i class="fas fa-comments"></i> Delete
                     </a>
                   </div>
@@ -68,7 +75,8 @@
 
               </div>
         </div>
-<!-- fhdrhth 
+      
+<!--
     <div class="row mt-5">
       <div class="col-md-12">
         <div class="card">
@@ -119,9 +127,9 @@
 
       </div>
     </div>
--->
 
-    <!-- Modal -->
+-->
+   
     <div
       class="modal fade"
       id="addNew"
@@ -136,9 +144,6 @@
             <h5 class="modal-title" v-show="!editmode" id="addNewLabel">
               Add New
             </h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">
-              Update Users's Info
-            </h5>
             <button
               type="button"
               class="close"
@@ -148,10 +153,11 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form @submit.prevent="editmode ? updateUser() : createUser()">
+          <form @submit.prevent="createUser">
             <div class="modal-body">
               <div class="form-group">
-                <label>Username</label>
+
+                <label>Name</label>
                 <input
                   v-model="form.name"
                   type="text"
@@ -159,6 +165,17 @@
                   placeholder="Name"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('username') }"
+                />
+                <has-error :form="form" field="name"></has-error>
+
+                <label>Surname</label>
+                <input
+                  v-model="form.surname"
+                  type="text"
+                  name="surname"
+                  placeholder="Surname"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('surname') }"
                 />
                 <has-error :form="form" field="name"></has-error>
 
@@ -173,37 +190,11 @@
                 />
                 <has-error :form="form" field="email"></has-error>
 
-                <label>Bio</label>
-                <textarea
-                  v-model="form.bio"
-                  type="text"
-                  id="bio"
-                  placeholder="Bio"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('username') }"
-                ></textarea>
-                <has-error :form="form" field="bio"></has-error>
-
-                <div class="form-group">
-                  <select
-                    name="type"
-                    v-model="form.type"
-                    id="type"
-                    class="form-control"
-                    :class="{ 'is-invalid': form.errors.has('type') }"
-                  >
-                    <option value="">Select User Role</option>
-                    <option value="admin">Admin</option>
-                    <option value="user">Standard User</option>
-                    <option value="author">Author</option>
-                  </select>
-                  <has-error :form="form" field="type"></has-error>
-                </div>
-
+                <label>Password</label>
                 <div class="form-group">
                   <input
                     v-model="form.password"
-                    type="password"
+                    type="text"
                     name="password"
                     id="password"
                     class="form-control"
@@ -217,10 +208,7 @@
               <button type="button" class="btn btn-danger" data-dismiss="modal">
                 Close
               </button>
-              <button v-show="editmode" type="submit" class="btn btn-success">
-                Update
-              </button>
-              <button v-show="!editmode" type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary">
                 Create
               </button>
             </div>
@@ -228,6 +216,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -236,54 +225,32 @@ import axios from "axios";
 export default {
   data() {
     return {
-      editmode: false,
       users: {},
       form: new Form({
         id: "",
         name: "",
+        surname: "",
         email: "",
         password: "",
-        type: "",
-        bio: "",
+        employee_id: "",
         photo: "",
       }),
     };
   },
   methods: {
-    updateUser(id) {
-      this.$Progress.start();
-      this.form
-        .put("api/user/" + this.form.id)
-        .then(() => {
-          Fire.$emit("AfterUpdate");
-          $("#addNew").modal("hide");
-          Fire.$emit("AfterDelete");
-          swal.fire("Updated!", "Your file has been updated.", "success");
-          this.$rogress.finish();
-        })
-        .catch(() => {
-          this.$Progress.fail();
-        });
-    },
+
 
     newModal() {
-      this.editmode = false;
       this.form.reset();
       $("#addNew").modal("show");
     },
 
-    editModal(user) {
-      this.editmode = true;
-      this.form.reset();
-      $("#addNew").modal("show");
-      this.form.fill(user);
-    },
 
     deleteUser(id) {
       swal
         .fire({
           title: "Are you sure?",
-          text: "You won't be able to revert this!",
+          text: "This user will delete.",
           icon: "warning",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
@@ -313,9 +280,9 @@ export default {
 
     loadUsers() {
       //console.log('Load user');
-      if(this.$gate.isAdmin()){
+      //if(this.$gate.isAdmin()){
       axios.get("api/user").then(({ data }) => (this.users = data.data));
-      }
+      //} 
     },
 
     createUser() {

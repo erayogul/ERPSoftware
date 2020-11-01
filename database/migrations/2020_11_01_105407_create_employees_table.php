@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
 			$table->increments('id');
 			$table->integer('employee_id')->unsigned()->unique();
 			$table->string('name', 191)->nullable();
-			$table->string('surname', 191)->nullable();
+            $table->string('surname', 191)->nullable();
 			$table->string('gender', 191)->nullable();
 			$table->string('blood_group', 191)->nullable();
 			$table->string('place_of_birth')->nullable();
@@ -43,10 +43,7 @@ class CreateEmployeesTable extends Migration
 			$table->string('administrative_title')->nullable();
 			$table->string('job_type', 191)->nullable();
 			$table->string('account_number', 191)->nullable();
-			$table->string('tshirt_size', 191)->nullable();
-			$table->string('avatar', 191)->nullable();
-			$table->string('residential_status')->nullable();
-			$table->string('bg_image', 191)->nullable();
+			$table->string('photo', 191)->nullable();
 			$table->string('status', 191)->default('0');
 			$table->timestamps();
         });

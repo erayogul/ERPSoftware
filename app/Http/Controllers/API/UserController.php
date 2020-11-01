@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Employee;
 
 class UserController extends Controller
 {
@@ -23,7 +24,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::latest()->paginate(100);
+        //dd( User::latest()->paginate(100));
+        return Employee::latest()->paginate(100);
 
     }
 
@@ -40,20 +42,25 @@ class UserController extends Controller
         //return['message'=>'I have data'];
         //return $request->all();
 
-        $this->validate($request,[
+       /* $this->validate($request,[
             'name' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users',
             'password' => 'required|string|min:6'
-        ]);
+        ]);*/
 
-        return User::create([
-            'name' => $request['name'],
+        User::create([
             'email' => $request['email'],
-            'type' => $request['type'],
-            'bio' => $request['bio'],
-            'photo' => $request['photo'],
             'password' => Hash::make($request['password']),
         ]);
+
+        Employee::create([
+            'name' => $request['name'],
+            'surname' => $request['surname'],
+            'email' => $request['email'],
+            'employee_id' => rand(10000, 99999),
+        ]);
+
+        return "ok";
     }
 
 
@@ -102,7 +109,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    /*public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
 
@@ -112,10 +119,14 @@ class UserController extends Controller
             'password' => 'sometimes|min:6'
         ]);
 
+        if(!empty($request->password)){
+            $request->merge(['password'=> Hash::make($request['password'])]);
+        }
+
         $user->update($request->all());
 
         return ['message' => 'update'];
-    }
+    }*/
 
     /**
      * Remove the specified resource from storage.
@@ -125,8 +136,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $this->authorize('isadmin');
-        $user = User::findOrFail($id);
+        //$this->authorize('isadmin');
+        $user = Employee::findOrFail($id);
         $user->delete();
         return['message' => 'User Deleted'];
     }

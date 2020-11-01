@@ -33,6 +33,7 @@
               <p>
                 Dashboard
               </p>
+              </router-link>
             </a>
           </li>
 

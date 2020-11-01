@@ -336,7 +336,7 @@ export default {
     }
   },
   mounted() {
-    console.log("Component mounted.");
+    console.log(this.$route.params.id );
   },
 
   methods:{

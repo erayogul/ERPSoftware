@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            /*$table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
@@ -22,7 +22,13 @@ class CreateUsersTable extends Migration
             $table->mediumText('bio')->nullable();
             $table->string('photo')->default('profile.png')->nullable();
             $table->rememberToken();
+            $table->timestamps();*/
+            $table->increments('id');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
+
         });
     }
 
