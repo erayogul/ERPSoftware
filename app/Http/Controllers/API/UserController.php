@@ -109,10 +109,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*public function update(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
-
+    public function update(Request $request, $id)
+    {/*        
+        $user = Employee::findOrFail($id);
         $this->validate($request,[
             'name' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
@@ -125,8 +124,16 @@ class UserController extends Controller
 
         $user->update($request->all());
 
-        return ['message' => 'update'];
-    }*/
+        return ['message' => 'update'];*/
+    }
+
+    public function getProfile(Request $request)
+    {
+
+        $user = Employee::where('employee_id', $request->employee_id)->firstOrFail();
+        //dd($user);
+        return $user;
+    }
 
     /**
      * Remove the specified resource from storage.

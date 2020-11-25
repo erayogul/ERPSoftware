@@ -35,13 +35,15 @@
                 </div>
                 <div class="card-footer">
                   <div class="text-center">
+                    <router-link :to="{ name: 'profile', params: { id: user.employee_id }}">
                     <a href="#" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> View Profile
                     </a>
+                    </router-link>
                     <router-link :to="{ name: 'profile', params: { id: user.employee_id }}">
-                    <div href="#" class="btn btn-sm bg-teal">
+                    <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-user"></i> Edit
-                    </div>
+                    </a>
                     </router-link>
                     <a href="#" @click="deleteUser(user.id)" class="btn btn-sm btn-danger">
                       <i class="fas fa-comments"></i> Delete
