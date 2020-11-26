@@ -280,7 +280,7 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                         <label for="inputName" class="col-sm-2 col-form-label">{{employee.name}} {{employee.surname}}</label>
                         </div>
                       </div>
                       <div class="form-group row">
