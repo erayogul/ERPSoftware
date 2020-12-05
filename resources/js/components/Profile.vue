@@ -13,7 +13,7 @@
       <div class="col-md-12 mt-3">
         <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white" style="background: url('./img/user-back.jpg  ') center center;">
+              <div class="widget-user-header text-white" style="background: url('./img/back.png  ') center center;">
                 <h3 class="widget-user-username text-right">{{employee.name}} {{employee.surname}}</h3>
                 <h5 class="widget-user-desc text-right">{{employee.position}}</h5>
               </div>
@@ -56,11 +56,9 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Information</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#information" data-toggle="tab">Information</a></li>
                   <li class="nav-item"><a class="nav-link" href="#activity" data-toggle="tab">Activity</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
-                </ul>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>                </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
@@ -274,53 +272,227 @@
                   </div>
                   <!-- /.tab-pane -->
 
-                  <div class="tab-pane active" id="settings">
+                  <div class="tab-pane active" id="information">
 
+                    <div id="accordion">
+                  <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
+                  <div class="card" >
+                    <a data-toggle="collapse" href="#collapseOne" data-parent="#accordion"  class="collapsed" aria-expanded="true">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                          Personal Information 
+                      </h4>
+                    </div>
+                    </a>
+                    <div id="collapseOne" class="panel-collapse in collapse" style="">
+                      <div class="card-body">
 
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                         <label for="inputName" class="col-sm-2 col-form-label">{{employee.name}} {{employee.surname}}</label>
+                         <label for="inputName" class="col-sm-6 col-form-label">{{employee.name}} {{employee.surname}}</label>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Gender</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                         <label for="inputName" class="col-sm-6 col-form-label">{{ employee.gender | gender}}</label>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Blood Group</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.blood_group}}</label>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Place Of Birth</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.place_of_birth}}</label>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Birthday</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.date_of_birth_official}}</label>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                            </label>
-                          </div>
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Marital Status:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.marital_status | maritalStatus}}</label>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Nationality:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.nationality}}</label>
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">ID Number:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.id_number}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Education Status:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.education_status}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Military Status:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.military_status}}</label>
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">
+                          Contact Information 
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" style="">
+                      <div class="card-body">
+
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Telephone No:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.mobile}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Address:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.address}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Email:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.email}}</label>
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card ">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed" aria-expanded="false">
+                          Emergency Contact Information
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                      <div class="card-body">
+
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Emergency Contact Name:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.emergency_contact_name}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Emergency Contact Mobile:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.emergency_contact_mobile}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Emergency Contact Type:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.emergency_contact_type}}</label>
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapsefour" class="collapsed" aria-expanded="false">
+                          Employment Information
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapsefour" class="panel-collapse collapse">
+                      <div class="card-body">
+
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Start Date:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.start_date}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">End Date:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.end_date}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Department:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.department}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Unit:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.unit}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Manager:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.manager}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Position:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.position}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Administrative Title:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.administrative_title}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Job Type:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.job_type}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Account Number:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.account_number}}</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Status:</label>
+                        <div class="col-sm-10">
+                         <label for="bloodGroup" class="col-sm-6 col-form-label">{{ employee.status}}</label>
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                   </div>
                   <!-- /.tab-pane -->
@@ -350,7 +522,7 @@ export default {
   methods:{
 
     getProfilePhoto(){
-      let photo = (this.employee.photo.length>200) ? this.employee.photo : "img/profile/"+ this.employee.photo;
+      let photo = (this.employee.photo.length>200) ? this.employee.photo : "img/"+ this.employee.photo;
       return photo;
     },
 

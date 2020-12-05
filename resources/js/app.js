@@ -54,6 +54,7 @@ Vue.use(VueProgressBar, {
 const routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue').default },
     { path: '/profile:id' ,name: 'profile',  component: require('./components/Profile.vue').default },
+    { path: '/editProfile:id' ,name: 'editProfile',  component: require('./components/ProfileEdit.vue').default },
     { path: '/users', component: require('./components/Users.vue').default },
     { path: '/developer', component: require('./components/Developer.vue').default },
     { path: '/notfound', component: require('./components/NotFound.vue').default },
@@ -74,6 +75,15 @@ Vue.filter('upText', function(text){
 Vue.filter('myDate', function(created){
   return moment(created).format('MMMM Do YYYY, h:mm:ss a');
 });
+
+Vue.filter('gender', function(genderNum){
+  return (genderNum == '0') ? 'Male' : 'Female';
+});
+
+Vue.filter('maritalStatus', function(maritalStatus){
+  return (maritalStatus == '0') ? 'Single' : 'Married';
+});
+
 
 window.Fire = new Vue();
 

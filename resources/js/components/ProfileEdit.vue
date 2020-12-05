@@ -13,8 +13,8 @@
       <div class="col-md-12 mt-3">
         <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white" style="background: url('./img/user-back.jpg  ') center center;">
-                <h3 class="widget-user-username text-right">{{ name }}</h3>
+              <div class="widget-user-header text-white" style="background: url('./img/back.png  ') center center;">
+                <h3 class="widget-user-username text-right">{{ name +" "+ surname }}</h3>
                 <h5 class="widget-user-desc text-right">Web Designer</h5>
               </div>
               <div class="widget-user-image">
@@ -56,9 +56,9 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#information" data-toggle="tab">Information</a></li>
                   <li class="nav-item"><a class="nav-link" href="#activity" data-toggle="tab">Activity</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li> 
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -272,9 +272,22 @@
                     </div>
                   </div>
                   <!-- /.tab-pane -->
+                  <div class="tab-pane active" id="information">
 
-                  <div class="tab-pane active" id="settings">
-                    <form class="form-horizontal">
+
+                    <div id="accordion">
+                  <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
+                  <div class="card" >
+                    <a data-toggle="collapse" href="#collapseOne" data-parent="#accordion"  class="collapsed" aria-expanded="true">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                          Personal Information 
+                      </h4>
+                    </div>
+                    </a>
+                    <div id="collapseOne" class="panel-collapse in collapse" style="">
+                      <div class="card-body">
+
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
@@ -282,17 +295,209 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Gender</label>
                         <div class="col-sm-10">
-                          <input type="email" v-model="form.email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="email" v-model="form.gender" class="form-control" id="inputEmail" placeholder="Name">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Id</label>
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Blood Group</label>
                         <div class="col-sm-10">
-                          <input type="email" v-model="form.id" class="form-control" id="inputid" placeholder="Email">
+                          <input type="email" v-model="form.blood_group" class="form-control" id="bloodGroup" placeholder="Name">
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Place Of Birth</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.place_of_birth" class="form-control" id="bloodGroup" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Birthday</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.date_of_birth_official" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Marital Status:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.marital_status" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Nationality:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.nationality" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">ID Number:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.id_number" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Education Status:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.education_status" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Military Status:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.military_status" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">
+                          Contact Information 
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" style="">
+                      <div class="card-body">
+
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Telephone No:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.mobile" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Address:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.address" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Email:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.email" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card ">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed" aria-expanded="false">
+                          Emergency Contact Information
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                      <div class="card-body">
+
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Emergency Contact Name:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.emergency_contact_name" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Emergency Contact Mobile:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.emergency_contact_mobile" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Emergency Contact Type:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.emergency_contact_type" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapsefour" class="collapsed" aria-expanded="false">
+                          Employment Information
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapsefour" class="panel-collapse collapse">
+                      <div class="card-body">
+
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Start Date:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.start_date" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">End Date:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.end_date" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Department:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.department" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Unit:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.unit" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Manager:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.manager" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Position:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.position" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Administrative Title:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.administrative_title" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Job Type:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.job_type" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Account Number:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.account_number" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bloodGroup" class="col-sm-2 col-form-label">Status:</label>
+                        <div class="col-sm-10">
+                          <input type="email" v-model="form.status" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                    <form class="form-horizontal">
                       <div class="form-group row">
                         <label for="customFile" class="col-sm-2 col-form-label">Photo</label>
                         <div class="custom-file col-sm-10">
@@ -324,15 +529,37 @@ export default {
   data(){
     return{
       form: new Form({
-        id: "",
+        employee_id: "",
         name: "",
+        surname: "",
+        gender: "",
+        blood_group: "",
+        place_of_birth: "",
+        date_of_birth_official: "",
+        mobile: "",
+        address: "",
+        marital_status: "",
+        nationality: "",
+        id_number: "",
+        emergency_contact_name: "",
+        emergency_contact_mobile: "",
+        emergency_contact_type: "",
+        education_status: "",
+        military_status: "",
         email: "",
-        password: "",
-        type: "",
-        bio: "",
+        start_date: "",
+        end_date: "",
+        department: "",
+        unit: "",
+        manager: "",
+        position: "",
+        administrative_title: "",
+        job_type: "",
+        account_number: "",
         photo: "",
       }),
-      name: ""
+      name: "",
+      surname: ""
     }
   },
   mounted() {
@@ -342,7 +569,7 @@ export default {
   methods:{
 
     getProfilePhoto(){
-      let photo = (this.form.photo.length>200) ? this.form.photo : "img/profile/"+ this.form.photo;
+      let photo = (this.form.photo.length>200) ? this.form.photo : "img/"+ this.form.photo;
       return photo;
     },
 
@@ -379,8 +606,9 @@ export default {
   },
 
   created(){
-    axios.get("api/profile")
-    .then(({data}) => (this.form.fill(data),this.name = data.name));
+    //axios.get("api/profile")
+    //.then(({data}) => (this.form.fill(data),this.name = data.name));
+    axios.get('api/getProfile',{params: {employee_id: this.$route.params.id}}).then(({ data }) => (this.form.fill(data),this.name = data.name, this.surname = data.surname));
 
     
   }

@@ -40,7 +40,7 @@
                       <i class="fas fa-user"></i> View Profile
                     </a>
                     </router-link>
-                    <router-link :to="{ name: 'profile', params: { id: user.employee_id }}">
+                    <router-link :to="{ name: 'editProfile', params: { id: user.employee_id }}">
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-user"></i> Edit
                     </a>
