@@ -348,6 +348,12 @@
                           <input type="email" v-model="form.military_status" class="form-control" id="inputName" placeholder="Name">
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label for="customFile" class="col-sm-2 col-form-label">Photo</label>
+                        <div class="custom-file col-sm-10">
+                            <input type="file" @change="updateProfile" class="form-control" id="customFile">
+                        </div>
+                      </div>
 
                       </div>
                     </div>
@@ -495,15 +501,7 @@
                   </div>
                 </div>
 
-
-
                     <form class="form-horizontal">
-                      <div class="form-group row">
-                        <label for="customFile" class="col-sm-2 col-form-label">Photo</label>
-                        <div class="custom-file col-sm-10">
-                            <input type="file" @change="updateProfile" class="form-control" id="customFile">
-                        </div>
-                      </div>
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <button @click.prevent="updateInfo" type="submit" class="btn btn-danger">Submit</button>

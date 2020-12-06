@@ -3159,8 +3159,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -70395,6 +70393,29 @@ var render = function() {
                                   }
                                 })
                               ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "form-group row" }, [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "col-sm-2 col-form-label",
+                                  attrs: { for: "customFile" }
+                                },
+                                [_vm._v("Photo")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "custom-file col-sm-10" },
+                                [
+                                  _c("input", {
+                                    staticClass: "form-control",
+                                    attrs: { type: "file", id: "customFile" },
+                                    on: { change: _vm.updateProfile }
+                                  })
+                                ]
+                              )
                             ])
                           ])
                         ]
@@ -71145,25 +71166,6 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("form", { staticClass: "form-horizontal" }, [
-                    _c("div", { staticClass: "form-group row" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-sm-2 col-form-label",
-                          attrs: { for: "customFile" }
-                        },
-                        [_vm._v("Photo")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "custom-file col-sm-10" }, [
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: { type: "file", id: "customFile" },
-                          on: { change: _vm.updateProfile }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
                     _c("div", { staticClass: "form-group row" }, [
                       _c("div", { staticClass: "offset-sm-2 col-sm-10" }, [
                         _c(

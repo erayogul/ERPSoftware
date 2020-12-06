@@ -72,8 +72,10 @@ class UserController extends Controller
 
     public function updateprofile(Request $request)
     {
-        $user = auth('api')->user(); 
+        
 
+        $user = Employee::where('employee_id', $request->employee_id)->firstOrFail();
+        //$user = auth('api')->user(); 
         $this->validate($request,[
             'name' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
