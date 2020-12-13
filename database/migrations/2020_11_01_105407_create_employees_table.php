@@ -43,7 +43,7 @@ class CreateEmployeesTable extends Migration
 			$table->string('administrative_title')->nullable();
 			$table->string('job_type', 191)->nullable();
 			$table->string('account_number', 191)->nullable();
-			$table->string('photo', 191)->nullable();
+			$table->string('photo', 191)->default('profile.png');
 			$table->string('status', 191)->default('0');
 			$table->timestamps();
         });

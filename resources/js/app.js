@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
 import moment from 'moment';
 import { Form, HasError, AlertError } from 'vform';
@@ -56,6 +57,7 @@ const routes = [
     { path: '/profile:id' ,name: 'profile',  component: require('./components/Profile.vue').default },
     { path: '/editProfile:id' ,name: 'editProfile',  component: require('./components/ProfileEdit.vue').default },
     { path: '/users', component: require('./components/Users.vue').default },
+    { path: '/roles', component: require('./components/Roles.vue').default },
     { path: '/developer', component: require('./components/Developer.vue').default },
     { path: '/notfound', component: require('./components/NotFound.vue').default },
     { path: '/notready', component: require('./components/NotReady.vue').default }

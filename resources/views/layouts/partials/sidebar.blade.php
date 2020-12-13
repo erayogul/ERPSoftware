@@ -199,6 +199,15 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <router-link to="/roles" class="nav-link">
+              <i class="nav-icon fas fa-users-cog"></i>
+              <p>
+                Roles and Privileges
+              </p>
+            </a>
+          </li>
+
           @can('isAdmin')
           <li class="nav-item">
             <router-link to="/developer" class="nav-link">

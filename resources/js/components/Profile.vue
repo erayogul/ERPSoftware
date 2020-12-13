@@ -277,14 +277,12 @@
                     <div id="accordion">
                   <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
                   <div class="card" >
-                    <a data-toggle="collapse" href="#collapseOne" data-parent="#accordion"  class="collapsed" aria-expanded="true">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                          Personal Information 
-                      </h4>
-                    </div>
-                    </a>
-                    <div id="collapseOne" class="panel-collapse in collapse" style="">
+  <div class="card-header">
+    <h3 class="card-title">Personal Information </h3>
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+    </div>
+  </div>
                       <div class="card-body">
 
                       <div class="form-group row">
@@ -350,16 +348,13 @@
 
                       </div>
                     </div>
-                  </div>
                   <div class="card">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">
-                          Contact Information 
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" style="">
+  <div class="card-header">
+    <h3 class="card-title">Contact Information </h3>
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+    </div>
+  </div>
                       <div class="card-body">
 
                       <div class="form-group row">
@@ -385,15 +380,13 @@
                     </div>
                   </div>
                   <div class="card ">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed" aria-expanded="false">
-                          Emergency Contact Information
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                      <div class="card-body">
+  <div class="card-header">
+    <h3 class="card-title">Emergency Contact Information</h3>
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+    </div>
+  </div>
+                        <div class="card-body">
 
                       <div class="form-group row">
                         <label for="bloodGroup" class="col-sm-2 col-form-label">Emergency Contact Name:</label>
@@ -416,16 +409,14 @@
 
                       </div>
                     </div>
-                  </div>
                   <div class="card">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapsefour" class="collapsed" aria-expanded="false">
-                          Employment Information
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapsefour" class="panel-collapse collapse">
+  <div class="card-header">
+    <h3 class="card-title">Employment Information</h3>
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+    </div>
+  </div>
+
                       <div class="card-body">
 
                       <div class="form-group row">
@@ -491,8 +482,6 @@
 
                       </div>
                     </div>
-                  </div>
-                </div>
 
                   </div>
                   <!-- /.tab-pane -->
@@ -502,8 +491,6 @@
             </div>
             <!-- /.nav-tabs-custom -->
           </div>
-
-
     </div>
   </div>
 </template>

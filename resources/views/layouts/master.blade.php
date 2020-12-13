@@ -48,5 +48,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 @endauth
 <script src="/js/app.js"></script>
+ <!--
+<script src="{{ asset('~datatables.net/js/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('~datatables.net-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('~datatables.net-responsive/js/dataTables.responsive.js') }}"></script>
+<script src="{{ asset('~datatables.net-responsive-bs4/js/responsive.bootstrap4.js') }}"></script>
+<script src="{{ asset('~datatables.net-buttons\js\dataTables.buttons.js') }}"></script>
+<script src="{{ asset('~datatables.net-buttons-bs4\js\buttons.bootstrap4.js') }}"></script>
+    -->    
 </body>
 </html>

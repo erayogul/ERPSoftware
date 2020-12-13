@@ -2582,19 +2582,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3242,6 +3229,209 @@ __webpack_require__.r(__webpack_exports__);
 
     //axios.get("api/profile")
     //.then(({data}) => (this.form.fill(data),this.name = data.name));
+    axios.get('api/getProfile', {
+      params: {
+        employee_id: this.$route.params.id
+      }
+    }).then(function (_ref) {
+      var data = _ref.data;
+      return _this3.form.fill(data), _this3.name = data.name, _this3.surname = data.surname;
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Roles.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Roles.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: new Form({
+        employee_id: "",
+        name: "",
+        surname: "",
+        gender: "",
+        blood_group: "",
+        place_of_birth: "",
+        date_of_birth_official: "",
+        mobile: "",
+        address: "",
+        marital_status: "",
+        nationality: "",
+        id_number: "",
+        emergency_contact_name: "",
+        emergency_contact_mobile: "",
+        emergency_contact_type: "",
+        education_status: "",
+        military_status: "",
+        email: "",
+        start_date: "",
+        end_date: "",
+        department: "",
+        unit: "",
+        manager: "",
+        position: "",
+        administrative_title: "",
+        job_type: "",
+        account_number: "",
+        photo: ""
+      }),
+      name: "",
+      surname: ""
+    };
+  },
+  mounted: function mounted() {
+    console.log(this.$route.params.id);
+  },
+  methods: {
+    getProfilePhoto: function getProfilePhoto() {
+      var photo = this.form.photo.length > 200 ? this.form.photo : "img/" + this.form.photo;
+      return photo;
+    },
+    updateInfo: function updateInfo() {
+      var _this = this;
+
+      this.$Progress.start();
+      this.form.put('api/profile').then(function () {
+        Fire.$emit('AfterCreate');
+
+        _this.$Progress.finish();
+      })["catch"](function () {
+        _this.$Progress.fail();
+      });
+    },
+    updateProfile: function updateProfile(e) {
+      var _this2 = this;
+
+      var file = e.target.files[0];
+      var reader = new FileReader();
+
+      if (file['size'] < 2111775) {
+        reader.onloadend = function (file) {
+          _this2.form.photo = reader.result;
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        swal.fire({
+          type: 'error',
+          title: 'Oops..',
+          text: 'You are uploading a large file'
+        });
+      }
+    }
+  },
+  created: function created() {
+    var _this3 = this;
+
     axios.get('api/getProfile', {
       params: {
         employee_id: this.$route.params.id
@@ -68660,685 +68850,631 @@ var render = function() {
                     _c("div", { staticClass: "card" }, [
                       _vm._m(4),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "panel-collapse in collapse",
-                          attrs: { id: "collapseOne" }
-                        },
-                        [
-                          _c("div", { staticClass: "card-body" }, [
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "inputName" }
-                                },
-                                [_vm._v("Name")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "inputName" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(_vm.employee.name) +
-                                        " " +
-                                        _vm._s(_vm.employee.surname)
-                                    )
-                                  ]
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "inputName" }
+                            },
+                            [_vm._v("Name")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "inputName" }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.employee.name) +
+                                    " " +
+                                    _vm._s(_vm.employee.surname)
                                 )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "inputEmail" }
-                                },
-                                [_vm._v("Gender")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "inputName" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm._f("gender")(_vm.employee.gender)
-                                      )
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Blood Group")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.blood_group))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Place Of Birth")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.place_of_birth))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Birthday")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm.employee.date_of_birth_official
-                                      )
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Marital Status:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm._f("maritalStatus")(
-                                          _vm.employee.marital_status
-                                        )
-                                      )
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Nationality:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.nationality))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("ID Number:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.id_number))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Education Status:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(_vm.employee.education_status)
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Military Status:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.military_status))]
-                                )
-                              ])
-                            ])
+                              ]
+                            )
                           ])
-                        ]
-                      )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "inputEmail" }
+                            },
+                            [_vm._v("Gender")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "inputName" }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm._f("gender")(_vm.employee.gender))
+                                )
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Blood Group")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.blood_group))]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Place Of Birth")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.place_of_birth))]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Birthday")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.employee.date_of_birth_official)
+                                )
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Marital Status:")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm._f("maritalStatus")(
+                                      _vm.employee.marital_status
+                                    )
+                                  )
+                                )
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Nationality:")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.nationality))]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("ID Number:")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.id_number))]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Education Status:")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.education_status))]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Military Status:")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.military_status))]
+                            )
+                          ])
+                        ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card" }, [
                       _vm._m(5),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "panel-collapse collapse",
-                          attrs: { id: "collapseTwo" }
-                        },
-                        [
-                          _c("div", { staticClass: "card-body" }, [
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Telephone No:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.mobile))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Address:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.address))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Email:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.email))]
-                                )
-                              ])
-                            ])
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Telephone No:")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.mobile))]
+                            )
                           ])
-                        ]
-                      )
-                    ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Address:")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.address))]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v("Email:")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "col-sm-6 col-form-label",
+                                attrs: { for: "bloodGroup" }
+                              },
+                              [_vm._v(_vm._s(_vm.employee.email))]
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card " }, [
+                    _vm._m(6),
                     _vm._v(" "),
-                    _c("div", { staticClass: "card " }, [
-                      _vm._m(6),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Emergency Contact Name:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(_vm.employee.emergency_contact_name)
+                              )
+                            ]
+                          )
+                        ])
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "panel-collapse collapse",
-                          attrs: { id: "collapseThree" }
-                        },
-                        [
-                          _c("div", { staticClass: "card-body" }, [
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Emergency Contact Name:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm.employee.emergency_contact_name
-                                      )
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Emergency Contact Mobile:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm.employee.emergency_contact_mobile
-                                      )
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Emergency Contact Type:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm.employee.emergency_contact_type
-                                      )
-                                    )
-                                  ]
-                                )
-                              ])
-                            ])
-                          ])
-                        ]
-                      )
-                    ]),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Emergency Contact Mobile:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(_vm.employee.emergency_contact_mobile)
+                              )
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Emergency Contact Type:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(_vm.employee.emergency_contact_type)
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card" }, [
+                    _vm._m(7),
                     _vm._v(" "),
-                    _c("div", { staticClass: "card" }, [
-                      _vm._m(7),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Start Date:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.start_date))]
+                          )
+                        ])
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "panel-collapse collapse",
-                          attrs: { id: "collapsefour" }
-                        },
-                        [
-                          _c("div", { staticClass: "card-body" }, [
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Start Date:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.start_date))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("End Date:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.end_date))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Department:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.department))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Unit:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.unit))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Manager:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.manager))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Position:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.position))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Administrative Title:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(_vm.employee.administrative_title)
-                                    )
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Job Type:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.job_type))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Account Number:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.account_number))]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "form-group row" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "col-sm-2 col-form-label",
-                                  attrs: { for: "bloodGroup" }
-                                },
-                                [_vm._v("Status:")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-10" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "col-sm-6 col-form-label",
-                                    attrs: { for: "bloodGroup" }
-                                  },
-                                  [_vm._v(_vm._s(_vm.employee.status))]
-                                )
-                              ])
-                            ])
-                          ])
-                        ]
-                      )
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("End Date:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.end_date))]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Department:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.department))]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Unit:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.unit))]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Manager:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.manager))]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Position:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.position))]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Administrative Title:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.administrative_title))]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Job Type:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.job_type))]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Account Number:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.account_number))]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 col-form-label",
+                            attrs: { for: "bloodGroup" }
+                          },
+                          [_vm._v("Status:")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 col-form-label",
+                              attrs: { for: "bloodGroup" }
+                            },
+                            [_vm._v(_vm._s(_vm.employee.status))]
+                          )
+                        ])
+                      ])
                     ])
                   ])
                 ]
@@ -69776,50 +69912,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "collapsed",
-        attrs: {
-          "data-toggle": "collapse",
-          href: "#collapseOne",
-          "data-parent": "#accordion",
-          "aria-expanded": "true"
-        }
-      },
-      [
-        _c("div", { staticClass: "card-header" }, [
-          _c("h4", { staticClass: "card-title" }, [
-            _vm._v(
-              "\n                        Personal Information \n                    "
-            )
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("Personal Information ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
         _c(
-          "a",
+          "button",
           {
-            staticClass: "collapsed",
-            attrs: {
-              "data-toggle": "collapse",
-              "data-parent": "#accordion",
-              href: "#collapseTwo",
-              "aria-expanded": "false"
-            }
+            staticClass: "btn btn-tool",
+            attrs: { type: "button", "data-card-widget": "collapse" }
           },
-          [
-            _vm._v(
-              "\n                        Contact Information \n                      "
-            )
-          ]
+          [_c("i", { staticClass: "fas fa-minus" })]
         )
       ])
     ])
@@ -69829,23 +69934,16 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Contact Information ")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
         _c(
-          "a",
+          "button",
           {
-            staticClass: "collapsed",
-            attrs: {
-              "data-toggle": "collapse",
-              "data-parent": "#accordion",
-              href: "#collapseThree",
-              "aria-expanded": "false"
-            }
+            staticClass: "btn btn-tool",
+            attrs: { type: "button", "data-card-widget": "collapse" }
           },
-          [
-            _vm._v(
-              "\n                        Emergency Contact Information\n                      "
-            )
-          ]
+          [_c("i", { staticClass: "fas fa-minus" })]
         )
       ])
     ])
@@ -69855,23 +69953,39 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("Emergency Contact Information")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
         _c(
-          "a",
+          "button",
           {
-            staticClass: "collapsed",
-            attrs: {
-              "data-toggle": "collapse",
-              "data-parent": "#accordion",
-              href: "#collapsefour",
-              "aria-expanded": "false"
-            }
+            staticClass: "btn btn-tool",
+            attrs: { type: "button", "data-card-widget": "collapse" }
           },
-          [
-            _vm._v(
-              "\n                        Employment Information\n                      "
-            )
-          ]
+          [_c("i", { staticClass: "fas fa-minus" })]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("Employment Information")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-tool",
+            attrs: { type: "button", "data-card-widget": "collapse" }
+          },
+          [_c("i", { staticClass: "fas fa-minus" })]
         )
       ])
     ])
@@ -71717,6 +71831,754 @@ var staticRenderFns = [
             )
           ]
         )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Roles.vue?vue&type=template&id=312d3e3c&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Roles.vue?vue&type=template&id=312d3e3c& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-md-12 mt-3" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h3", { staticClass: "card-title" }, [
+                _vm._v("DataTable with default features")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "dataTables_wrapper dt-bootstrap4",
+                  attrs: { id: "example1_wrapper" }
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12 col-md-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "dt-buttons btn-group flex-wrap" },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-secondary buttons-copy buttons-html5",
+                              attrs: {
+                                tabindex: "0",
+                                "aria-controls": "example1",
+                                type: "button"
+                              }
+                            },
+                            [_c("span", [_vm._v("Copy")])]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-secondary buttons-csv buttons-html5",
+                              attrs: {
+                                tabindex: "0",
+                                "aria-controls": "example1",
+                                type: "button"
+                              }
+                            },
+                            [_c("span", [_vm._v("CSV")])]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-secondary buttons-excel buttons-html5",
+                              attrs: {
+                                tabindex: "0",
+                                "aria-controls": "example1",
+                                type: "button"
+                              }
+                            },
+                            [_c("span", [_vm._v("Excel")])]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-secondary buttons-pdf buttons-html5",
+                              attrs: {
+                                tabindex: "0",
+                                "aria-controls": "example1",
+                                type: "button"
+                              }
+                            },
+                            [_c("span", [_vm._v("PDF")])]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-secondary buttons-print",
+                              attrs: {
+                                tabindex: "0",
+                                "aria-controls": "example1",
+                                type: "button"
+                              }
+                            },
+                            [_c("span", [_vm._v("Print")])]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "btn-group" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-secondary buttons-collection dropdown-toggle buttons-colvis",
+                                attrs: {
+                                  tabindex: "0",
+                                  "aria-controls": "example1",
+                                  type: "button",
+                                  "aria-haspopup": "true",
+                                  "aria-expanded": "false"
+                                }
+                              },
+                              [_c("span", [_vm._v("Column visibility")])]
+                            )
+                          ])
+                        ]
+                      )
+                    ]),
+                    _c("div", { staticClass: "col-sm-12 col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dataTables_filter",
+                          attrs: { id: "example1_filter" }
+                        },
+                        [
+                          _c("label", [
+                            _vm._v("Search:"),
+                            _c("input", {
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "search",
+                                placeholder: "",
+                                "aria-controls": "example1"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12" }, [
+                      _c(
+                        "table",
+                        {
+                          staticClass:
+                            "table table-bordered table-striped dataTable dtr-inline collapsed",
+                          attrs: {
+                            id: "example1",
+                            role: "grid",
+                            "aria-describedby": "example1_info"
+                          }
+                        },
+                        [
+                          _c("thead", [
+                            _c("tr", { attrs: { role: "row" } }, [
+                              _c(
+                                "th",
+                                {
+                                  staticClass: "sorting_asc",
+                                  attrs: {
+                                    tabindex: "0",
+                                    "aria-controls": "example1",
+                                    rowspan: "1",
+                                    colspan: "1",
+                                    "aria-sort": "ascending",
+                                    "aria-label":
+                                      "Rendering engine: activate to sort column descending"
+                                  }
+                                },
+                                [_vm._v("Rendering engine")]
+                              ),
+                              _c(
+                                "th",
+                                {
+                                  staticClass: "sorting",
+                                  attrs: {
+                                    tabindex: "0",
+                                    "aria-controls": "example1",
+                                    rowspan: "1",
+                                    colspan: "1",
+                                    "aria-label":
+                                      "Browser: activate to sort column ascending"
+                                  }
+                                },
+                                [_vm._v("Browser")]
+                              ),
+                              _c(
+                                "th",
+                                {
+                                  staticClass: "sorting",
+                                  attrs: {
+                                    tabindex: "0",
+                                    "aria-controls": "example1",
+                                    rowspan: "1",
+                                    colspan: "1",
+                                    "aria-label":
+                                      "Platform(s): activate to sort column ascending"
+                                  }
+                                },
+                                [_vm._v("Platform(s)")]
+                              ),
+                              _c(
+                                "th",
+                                {
+                                  staticClass: "sorting",
+                                  attrs: {
+                                    tabindex: "0",
+                                    "aria-controls": "example1",
+                                    rowspan: "1",
+                                    colspan: "1",
+                                    "aria-label":
+                                      "Engine version: activate to sort column ascending"
+                                  }
+                                },
+                                [_vm._v("Engine version")]
+                              ),
+                              _c(
+                                "th",
+                                {
+                                  staticClass: "sorting",
+                                  staticStyle: { display: "none" },
+                                  attrs: {
+                                    tabindex: "0",
+                                    "aria-controls": "example1",
+                                    rowspan: "1",
+                                    colspan: "1",
+                                    "aria-label":
+                                      "CSS grade: activate to sort column ascending"
+                                  }
+                                },
+                                [_vm._v("CSS grade")]
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("tbody", [
+                            _c(
+                              "tr",
+                              { staticClass: "odd", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "dtr-control sorting_1",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Firefox 1.0")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.7")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "even", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "dtr-control sorting_1",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Firefox 1.5")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.8")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "odd", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "dtr-control sorting_1",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Firefox 2.0")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.8")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "even", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "dtr-control sorting_1",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Firefox 3.0")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Win 2k+ / OSX.3+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.9")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "odd", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "sorting_1 dtr-control",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Camino 1.0")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("OSX.2+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.8")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "even", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "sorting_1 dtr-control",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Camino 1.5")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("OSX.3+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.8")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "odd", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "sorting_1 dtr-control",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Netscape 7.2")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Win 95+ / Mac OS 8.6-9.2")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.7")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "even", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "sorting_1 dtr-control",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Netscape Browser 8")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Win 98SE+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.7")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "odd", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "sorting_1 dtr-control",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Netscape Navigator 9")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Win 98+ / OSX.2+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1.8")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "tr",
+                              { staticClass: "even", attrs: { role: "row" } },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "sorting_1 dtr-control",
+                                    attrs: { tabindex: "0" }
+                                  },
+                                  [_vm._v("Gecko")]
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Mozilla 1.0")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("Win 95+ / OSX.1+")]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v("1")]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { display: "none" } }, [
+                                  _vm._v("A")
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("tfoot", [
+                            _c("tr", [
+                              _c(
+                                "th",
+                                { attrs: { rowspan: "1", colspan: "1" } },
+                                [_vm._v("Rendering engine")]
+                              ),
+                              _c(
+                                "th",
+                                { attrs: { rowspan: "1", colspan: "1" } },
+                                [_vm._v("Browser")]
+                              ),
+                              _c(
+                                "th",
+                                { attrs: { rowspan: "1", colspan: "1" } },
+                                [_vm._v("Platform(s)")]
+                              ),
+                              _c(
+                                "th",
+                                { attrs: { rowspan: "1", colspan: "1" } },
+                                [_vm._v("Engine version")]
+                              ),
+                              _c(
+                                "th",
+                                {
+                                  staticStyle: { display: "none" },
+                                  attrs: { rowspan: "1", colspan: "1" }
+                                },
+                                [_vm._v("CSS grade")]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12 col-md-5" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dataTables_info",
+                          attrs: {
+                            id: "example1_info",
+                            role: "status",
+                            "aria-live": "polite"
+                          }
+                        },
+                        [_vm._v("Showing 1 to 10 of 57 entries")]
+                      )
+                    ]),
+                    _c("div", { staticClass: "col-sm-12 col-md-7" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "dataTables_paginate paging_simple_numbers",
+                          attrs: { id: "example1_paginate" }
+                        },
+                        [
+                          _c("ul", { staticClass: "pagination" }, [
+                            _c(
+                              "li",
+                              {
+                                staticClass:
+                                  "paginate_button page-item previous disabled",
+                                attrs: { id: "example1_previous" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "page-link",
+                                    attrs: {
+                                      href: "#",
+                                      "aria-controls": "example1",
+                                      "data-dt-idx": "0",
+                                      tabindex: "0"
+                                    }
+                                  },
+                                  [_vm._v("Previous")]
+                                )
+                              ]
+                            ),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "paginate_button page-item active"
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "page-link",
+                                    attrs: {
+                                      href: "#",
+                                      "aria-controls": "example1",
+                                      "data-dt-idx": "1",
+                                      tabindex: "0"
+                                    }
+                                  },
+                                  [_vm._v("1")]
+                                )
+                              ]
+                            ),
+                            _c(
+                              "li",
+                              { staticClass: "paginate_button page-item " },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "page-link",
+                                    attrs: {
+                                      href: "#",
+                                      "aria-controls": "example1",
+                                      "data-dt-idx": "2",
+                                      tabindex: "0"
+                                    }
+                                  },
+                                  [_vm._v("2")]
+                                )
+                              ]
+                            ),
+                            _c(
+                              "li",
+                              { staticClass: "paginate_button page-item " },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "page-link",
+                                    attrs: {
+                                      href: "#",
+                                      "aria-controls": "example1",
+                                      "data-dt-idx": "3",
+                                      tabindex: "0"
+                                    }
+                                  },
+                                  [_vm._v("3")]
+                                )
+                              ]
+                            ),
+                            _c(
+                              "li",
+                              { staticClass: "paginate_button page-item " },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "page-link",
+                                    attrs: {
+                                      href: "#",
+                                      "aria-controls": "example1",
+                                      "data-dt-idx": "4",
+                                      tabindex: "0"
+                                    }
+                                  },
+                                  [_vm._v("4")]
+                                )
+                              ]
+                            ),
+                            _c(
+                              "li",
+                              { staticClass: "paginate_button page-item " },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "page-link",
+                                    attrs: {
+                                      href: "#",
+                                      "aria-controls": "example1",
+                                      "data-dt-idx": "5",
+                                      tabindex: "0"
+                                    }
+                                  },
+                                  [_vm._v("5")]
+                                )
+                              ]
+                            ),
+                            _c(
+                              "li",
+                              { staticClass: "paginate_button page-item " },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "page-link",
+                                    attrs: {
+                                      href: "#",
+                                      "aria-controls": "example1",
+                                      "data-dt-idx": "6",
+                                      tabindex: "0"
+                                    }
+                                  },
+                                  [_vm._v("6")]
+                                )
+                              ]
+                            ),
+                            _c(
+                              "li",
+                              {
+                                staticClass: "paginate_button page-item next",
+                                attrs: { id: "example1_next" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "page-link",
+                                    attrs: {
+                                      href: "#",
+                                      "aria-controls": "example1",
+                                      "data-dt-idx": "7",
+                                      tabindex: "0"
+                                    }
+                                  },
+                                  [_vm._v("Next")]
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
       ])
     ])
   }
@@ -88865,6 +89727,9 @@ var routes = [{
   path: '/users',
   component: __webpack_require__(/*! ./components/Users.vue */ "./resources/js/components/Users.vue")["default"]
 }, {
+  path: '/roles',
+  component: __webpack_require__(/*! ./components/Roles.vue */ "./resources/js/components/Roles.vue")["default"]
+}, {
   path: '/developer',
   component: __webpack_require__(/*! ./components/Developer.vue */ "./resources/js/components/Developer.vue")["default"]
 }, {
@@ -89465,6 +90330,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_template_id_4e1588b8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileEdit_vue_vue_type_template_id_4e1588b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Roles.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Roles.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Roles_vue_vue_type_template_id_312d3e3c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Roles.vue?vue&type=template&id=312d3e3c& */ "./resources/js/components/Roles.vue?vue&type=template&id=312d3e3c&");
+/* harmony import */ var _Roles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Roles.vue?vue&type=script&lang=js& */ "./resources/js/components/Roles.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Roles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Roles_vue_vue_type_template_id_312d3e3c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Roles_vue_vue_type_template_id_312d3e3c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Roles.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Roles.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/Roles.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Roles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Roles.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Roles.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Roles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Roles.vue?vue&type=template&id=312d3e3c&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/Roles.vue?vue&type=template&id=312d3e3c& ***!
+  \**************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Roles_vue_vue_type_template_id_312d3e3c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Roles.vue?vue&type=template&id=312d3e3c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Roles.vue?vue&type=template&id=312d3e3c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Roles_vue_vue_type_template_id_312d3e3c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Roles_vue_vue_type_template_id_312d3e3c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

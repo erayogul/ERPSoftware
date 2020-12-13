@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use app\Observers\EmpoloyeeObserver;
 
 class Employee extends Model
 {
@@ -23,5 +24,9 @@ class Employee extends Model
         'status'
     ];
 
+    public function roles()
+    {
+        return $this->hasOne(Roles::class, 'employee_id','employee_id');
+    }
 
 }
