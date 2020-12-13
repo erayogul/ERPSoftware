@@ -3,96 +3,58 @@
     <div class="row justify-content-center">
       <div class="col-md-12 mt-3">
           
-          <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">               <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button> <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button> <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true" aria-expanded="false"><span>Column visibility</span></button></div> </div></div><div class="col-sm-12 col-md-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
-                  <thead>
-                  <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Rendering engine</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Browser</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Platform(s)</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="display: none;">CSS grade</th></tr>
-                  </thead>
-                  <tbody>
-                  <tr role="row" class="odd">
-                    <td class="dtr-control sorting_1" tabindex="0" style="">Gecko</td>
-                    <td>Firefox 1.0</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.7</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                    <td>Firefox 1.5</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                    <td>Firefox 2.0</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                    <td>Firefox 3.0</td>
-                    <td>Win 2k+ / OSX.3+</td>
-                    <td>1.9</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td class="sorting_1 dtr-control" tabindex="0">Gecko</td>
-                    <td>Camino 1.0</td>
-                    <td>OSX.2+</td>
-                    <td>1.8</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td class="sorting_1 dtr-control" tabindex="0">Gecko</td>
-                    <td>Camino 1.5</td>
-                    <td>OSX.3+</td>
-                    <td>1.8</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td class="sorting_1 dtr-control" tabindex="0">Gecko</td>
-                    <td>Netscape 7.2</td>
-                    <td>Win 95+ / Mac OS 8.6-9.2</td>
-                    <td>1.7</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td class="sorting_1 dtr-control" tabindex="0">Gecko</td>
-                    <td>Netscape Browser 8</td>
-                    <td>Win 98SE+</td>
-                    <td>1.7</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="odd">
-                    <td class="sorting_1 dtr-control" tabindex="0">Gecko</td>
-                    <td>Netscape Navigator 9</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  <tr role="row" class="even">
-                    <td class="sorting_1 dtr-control" tabindex="0">Gecko</td>
-                    <td>Mozilla 1.0</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>1</td>
-                    <td style="display: none;">A</td>
-                  </tr>
-                  </tbody>
-                  <tfoot>
-                  <tr><th rowspan="1" colspan="1">Rendering engine</th><th rowspan="1" colspan="1">Browser</th><th rowspan="1" colspan="1">Platform(s)</th><th rowspan="1" colspan="1">Engine version</th><th rowspan="1" colspan="1" style="display: none;">CSS grade</th></tr>
-                  </tfoot>
-                </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
-              </div>
-              <!-- /.card-body -->
-            </div>
+           <v-card>
+    <v-card-title>
+      Roles & Privilages
+      <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+    </v-card-title>
+    <v-data-table
+      :headers="headers"
+      :items="desserts"
+      :search="search"
       
+    >
+  <template v-slot:items="props">
+      <td>{{ props.desserts.employee_id }}</td>
+
+      <td>{{ props.desserts.isAdmin }}</td>
+
+      <td>{{ props.desserts.isAdmin }}</td>
+
+      <td>{{ props.desserts.stock_create }}</td>
+      <td>{{ props.desserts.stock_view }}</td>
+      <td>{{ props.desserts.stock_use }}</td>
+      <td>{{ props.desserts.stock_edit }}</td>
+      <td>{{ props.desserts.stock_delete }}</td>
+
+      <td>{{ props.desserts.welfare_create }}</td>
+      <td>{{ props.desserts.welfare_view }}</td>
+      <td>{{ props.desserts.welfare_edit }}</td>
+      <td>{{ props.desserts.welfare_delete }}</td>
+
+      <td>{{ props.desserts.employee_view_all }}</td>
+      <td>{{ props.desserts.employee_view_basic }}</td>
+      <td>{{ props.desserts.employee_view_hr }}</td>
+      <td>{{ props.desserts.employee_edit_all }}</td>
+      <td>{{ props.desserts.employee_edit_basic }}</td>
+      <td>{{ props.desserts.employee_edit_hr }}</td>
+      <td>{{ props.desserts.employee_delete }}</td>
+
+      <td>{{ props.desserts.department_create }}</td>
+      <td>{{ props.desserts.department_view }}</td>
+      <td>{{ props.desserts.department_edit }}</td>
+      <td>{{ props.desserts.department_delete }}</td>
+
+     </template>
+    </v-data-table>
+  </v-card>
        </div>
     </div>
   </div>
@@ -102,88 +64,52 @@
 export default {
   data(){
     return{
-      form: new Form({
-        employee_id: "",
-        name: "",
-        surname: "",
-        gender: "",
-        blood_group: "",
-        place_of_birth: "",
-        date_of_birth_official: "",
-        mobile: "",
-        address: "",
-        marital_status: "",
-        nationality: "",
-        id_number: "",
-        emergency_contact_name: "",
-        emergency_contact_mobile: "",
-        emergency_contact_type: "",
-        education_status: "",
-        military_status: "",
-        email: "",
-        start_date: "",
-        end_date: "",
-        department: "",
-        unit: "",
-        manager: "",
-        position: "",
-        administrative_title: "",
-        job_type: "",
-        account_number: "",
-        photo: "",
-      }),
-      name: "",
-      surname: ""
+      search: '',
+        headers: [
+          { text: 'Employee ID', value: 'employee_id' },
+
+          { text: 'is Admin', value: 'isAdmin' },
+
+          { text: 'Stock Create', value: 'stock_create' },
+          { text: 'Stock View', value: 'stock_view' },
+          { text: 'Stock Use', value: 'stock_use' },
+          { text: 'Stock Edit', value: 'stock_edit' },
+          { text: 'Stock Delete', value: 'stock_delete' },
+
+          { text: 'Welfare Create', value: 'welfare_create' },
+          { text: 'Welfare View', value: 'welfare_view' },
+          { text: 'Welfare Edit', value: 'welfare_edit' },
+          { text: 'Welfare Delete', value: 'welfare_delete' },
+
+          { text: 'Employee View All', value: 'employee_view_all' },
+          { text: 'Employee View Basic', value: 'employee_view_basic' },
+          { text: 'Employee View HR', value: 'employee_view_hr' },
+          { text: 'Employee Edit All', value: 'employee_edit_all' },
+          { text: 'Employee Edit Basic', value: 'employee_edit_basic' },
+          { text: 'Employee Edit HR', value: 'employee_edit_hr' },
+          { text: 'Employee Delete', value: 'employee_delete' },
+
+          { text: 'Department Create', value: 'department_create' },
+          { text: 'Department View', value: 'department_view' },
+          { text: 'Department Edit', value: 'department_edit' },
+          { text: 'Department Delete', value: 'department_delete' },
+        ],
+        desserts: [],
+
     }
   },
-  mounted() {
-    console.log(this.$route.params.id );
-  },
-
   methods:{
 
-    getProfilePhoto(){
-      let photo = (this.form.photo.length>200) ? this.form.photo : "img/"+ this.form.photo;
-      return photo;
+    loadUsers() {
+        console.log()
+      axios.get("api/getAllUsers").then(({ data }) => (this.desserts = data.data));
     },
 
-    updateInfo(){
-      this.$Progress.start();
-      this.form.put('api/profile')
-      .then(()=>{
-        Fire.$emit('AfterCreate');
-        this.$Progress.finish();
-      })
-      .catch(()=>{
-        this.$Progress.fail();
-      });
-    },
-
-    updateProfile(e){
-      let file = e.target.files[0];
-      let reader = new FileReader();
-
-      if(file['size'] < 2111775){
-        reader.onloadend = (file) => {
-          this.form.photo = reader.result;
-        }
-        reader.readAsDataURL(file);
-      }
-      else{
-        swal.fire({
-          type: 'error',
-          title: 'Oops..',
-          text: 'You are uploading a large file',
-        })
-      }
-    }
   },
 
-  created(){
-    axios.get('api/getProfile',{params: {employee_id: this.$route.params.id}}).then(({ data }) => (this.form.fill(data),this.name = data.name, this.surname = data.surname));
-
-    
-  }
+    mounted() {
+       this.loadUsers();
+    },
 
 };
 </script>

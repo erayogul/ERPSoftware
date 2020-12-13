@@ -7,16 +7,11 @@ $fa-font-path: "../webfonts";
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~admin-lte/dist/css/adminlte.css';
-
-@import '~datatables.net-bs4/css/dataTables.bootstrap4.css';
-@import '~datatables.net-responsive-bs4/css/responsive.bootstrap4.css';
-@import '~datatables.net-buttons-bs4/css/buttons.bootstrap4.css';
-
-
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-
+@import '~vuetify/dist/vuetify.min.css';
+@import '~@mdi/font/css/materialdesignicons.css'; 
 
 .router-link-exact-active{
     background-color: #3f51b5;

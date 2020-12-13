@@ -5,9 +5,10 @@
  */
 
 require('./bootstrap');
-
+import Vuetify from 'vuetify'
 
 window.Vue = require('vue');
+Vue.use(Vuetify)
 import moment from 'moment';
 import { Form, HasError, AlertError } from 'vform';
 
@@ -116,9 +117,9 @@ Vue.component(
 );
 
 
-
-
+const vuetifyOptions={};
 const app = new Vue({
+    vuetify: new Vuetify(vuetifyOptions),
     el: '#app',
     router
 });

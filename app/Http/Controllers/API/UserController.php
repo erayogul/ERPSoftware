@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Employee;
+use App\Models\Roles;
 
 class UserController extends Controller
 {
@@ -150,4 +151,12 @@ class UserController extends Controller
         $user->delete();
         return['message' => 'User Deleted'];
     }
+
+    public function getAllUsers()
+    {
+        return Roles::latest()->paginate(100);
+        //dd(Roles::latest()->paginate(100));
+    }
+
+    
 }
