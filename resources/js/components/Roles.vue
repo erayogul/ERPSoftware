@@ -1,4 +1,5 @@
 <template>
+<v-app>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12 mt-3">
@@ -21,43 +22,67 @@
       :search="search"
       
     >
-  <template v-slot:items="props">
-      <td>{{ props.desserts.employee_id }}</td>
-
-      <td>{{ props.desserts.isAdmin }}</td>
-
-      <td>{{ props.desserts.isAdmin }}</td>
-
-      <td>{{ props.desserts.stock_create }}</td>
-      <td>{{ props.desserts.stock_view }}</td>
-      <td>{{ props.desserts.stock_use }}</td>
-      <td>{{ props.desserts.stock_edit }}</td>
-      <td>{{ props.desserts.stock_delete }}</td>
-
-      <td>{{ props.desserts.welfare_create }}</td>
-      <td>{{ props.desserts.welfare_view }}</td>
-      <td>{{ props.desserts.welfare_edit }}</td>
-      <td>{{ props.desserts.welfare_delete }}</td>
-
-      <td>{{ props.desserts.employee_view_all }}</td>
-      <td>{{ props.desserts.employee_view_basic }}</td>
-      <td>{{ props.desserts.employee_view_hr }}</td>
-      <td>{{ props.desserts.employee_edit_all }}</td>
-      <td>{{ props.desserts.employee_edit_basic }}</td>
-      <td>{{ props.desserts.employee_edit_hr }}</td>
-      <td>{{ props.desserts.employee_delete }}</td>
-
-      <td>{{ props.desserts.department_create }}</td>
-      <td>{{ props.desserts.department_view }}</td>
-      <td>{{ props.desserts.department_edit }}</td>
-      <td>{{ props.desserts.department_delete }}</td>
+  <template v-slot:item.employee_id="{ item }">
+      <v-menu
+        v-model="menu"
+        bottom
+        right
+        transition="scale-transition"
+        origin="top left"
+      >
+        <template v-slot:activator="{ on }">
+          <v-chip
+            pill
+            v-on="on"
+          >
+            <v-avatar left>
+              <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+            </v-avatar>
+            {{item.employee_id}}
+          </v-chip>
+        </template>
+        <v-card width="300">
+          <v-list dark>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-title>John Leider</v-list-item-title>
+                <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+              </v-list-item-content>
+              <v-list-item-action>
+                <v-btn
+                  icon
+                  @click="menu = false"
+                >
+                  <v-icon>mdi-close-circle</v-icon>
+                </v-btn>
+              </v-list-item-action>
+            </v-list-item>
+          </v-list>
+          <v-list>
+            <v-list-item @click="() => {}">
+              <v-list-item-action>
+                <v-icon>mdi-briefcase</v-icon>
+              </v-list-item-action>
+              <v-list-item-subtitle>john@gmail.com</v-list-item-subtitle>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-menu>
 
      </template>
+  <template v-slot:item.isAdmin="{ item }">
+ <v-switch v-model="item.isAdmin" color="success"></v-switch>
+</template>
     </v-data-table>
   </v-card>
        </div>
     </div>
   </div>
+
+  </v-app>
 </template>
 
 <script>
@@ -96,13 +121,14 @@ export default {
         ],
         desserts: [],
 
+
     }
   },
   methods:{
 
     loadUsers() {
-        console.log()
       axios.get("api/getAllUsers").then(({ data }) => (this.desserts = data.data));
+      axios.get("api/user").then(({ data }) => (this.desserts = data.data));
     },
 
   },

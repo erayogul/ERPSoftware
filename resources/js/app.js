@@ -5,9 +5,10 @@
  */
 
 require('./bootstrap');
-import Vuetify from 'vuetify'
+
 
 window.Vue = require('vue');
+import Vuetify from 'vuetify'
 Vue.use(Vuetify)
 import moment from 'moment';
 import { Form, HasError, AlertError } from 'vform';

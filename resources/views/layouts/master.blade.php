@@ -15,6 +15,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
 
 <link rel="stylesheet" href="/css/app.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini" >
 <div class="wrapper" id="app">
