@@ -573,7 +573,7 @@ export default {
 
     updateInfo(){
       this.$Progress.start();
-      this.form.put('api/profile')
+      axios.post.put('api/profile')
       .then(()=>{
         Fire.$emit('AfterCreate');
         this.$Progress.finish();

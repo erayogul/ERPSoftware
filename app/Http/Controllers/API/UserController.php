@@ -157,6 +157,14 @@ class UserController extends Controller
         return Roles::latest()->paginate(100);
         //dd(Roles::latest()->paginate(100));
     }
+    public function updateRole(Request $request)
+    {
+        $columName = $request->columName;
+        $newRolestatus = $request->newRolestatus;
+        $user = Roles::where('employee_id', $request->employee_id)->firstOrFail();
+        $user->update([$columName => $newRolestatus]);
+        return ['message' => "Success"];
+    }
 
     
 }
