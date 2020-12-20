@@ -60,6 +60,7 @@ const routes = [
     { path: '/editProfile:id' ,name: 'editProfile',  component: require('./components/ProfileEdit.vue').default },
     { path: '/users', component: require('./components/Users.vue').default },
     { path: '/roles', component: require('./components/Roles.vue').default },
+    { path: '/departments', component: require('./components/Departments.vue').default },
     { path: '/developer', component: require('./components/Developer.vue').default },
     { path: '/notfound', component: require('./components/NotFound.vue').default },
     { path: '/notready', component: require('./components/NotReady.vue').default }

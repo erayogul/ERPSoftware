@@ -54,6 +54,13 @@
                 </a>
               </li>
               <li class="nav-item">
+                <router-link to="/departments" class="nav-link ">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Departments</p>
+                  </router-link>
+                </a>
+              </li>
+              <li class="nav-item">
                 <router-link to="/notready" class="nav-link ">
                   <i class="fas fa-circle nav-icon"></i>
                   <p>Time Off Request</p>

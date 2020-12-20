@@ -21,14 +21,14 @@
                   <v-list-item>
                     <v-list-item-avatar>
                       <v-img
-                        src="https://cdn.vuetifyjs.com/images/john.png"
+                         :src= getProfilePhotoUrl(item.photo)
                       ></v-img>
                     </v-list-item-avatar>
                     <v-list-item-content>
-                      <v-list-item-title>John Leider</v-list-item-title>
+                      <v-list-item-title> {{item.name}} {{item.surname}} </v-list-item-title>
                       <v-list-item-subtitle>{{
                         item.employee_id
-                      }}</v-list-item-subtitle>
+                      }}  </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list>
@@ -259,7 +259,10 @@
 </template>
 
 <script>
+import {mainMixin} from '../mainMixin.js'
+
 export default {
+  mixins: [mainMixin],
   data() {
     return {
       search: "",
@@ -293,15 +296,13 @@ export default {
         { text: "Department Delete", value: "department_delete" },
       ],
       desserts: [],
-      employeeInfo: [],
     };
   },
   methods: {
     loadUsers() {
       axios
         .get("api/getAllUsers")
-        .then(({ data }) => (this.desserts = data.data));
-      axios.get("api/user").then(({ data }) => (this.employeeInfo = data.data));
+        .then(({ data }) => (this.desserts = data));
     },
     updateRoles(newRolestatus, employee_id, columName) {
       axios

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Employee;
 use App\Models\Roles;
+use Illuminate\Support\Facades\DB;
+use App\Models\Departments;
+
 
 class UserController extends Controller
 {
@@ -154,8 +157,13 @@ class UserController extends Controller
 
     public function getAllUsers()
     {
-        return Roles::latest()->paginate(100);
-        //dd(Roles::latest()->paginate(100));
+        $users = DB::table('roles')
+        ->join('employees', 'roles.employee_id', '=', 'employees.employee_id')
+        ->select('roles.*', 'employees.name','employees.surname','employees.photo')
+        ->get();
+        return $users;
+
+        //return Roles::latest()->paginate(100);
     }
     public function updateRole(Request $request)
     {
@@ -165,6 +173,45 @@ class UserController extends Controller
         $user->update([$columName => $newRolestatus]);
         return ['message' => "Success"];
     }
+    public function getProfilPhoto(Request $request)
+    {
+        $user = Employee::where('employee_id', $request->employee_id)->firstOrFail();
+        return $user->photo;
+    }
+    public function getEmployeeName(Request $request)
+    {
+        $user = Employee::where('employee_id', $request->employee_id)->firstOrFail();
+        $name_surname= $user->name . ' ' . $user->surname;
+        return $name_surname;
+    }
+
+    public function createDepartment(Request $request)
+    {
+        dd($request);
+    }
+
+    public function updateDepartment(Request $request)
+    {
+        dd($request);
+    }
+
+    public function deleteDepartment(Request $request)
+    {
+        dd($request);
+    }
+
+    public function getDepartment(Request $request)
+    {
+         return Departments::latest()->paginate(100);
+    }
+
+    public function getEmployeeId(Request $request)
+    {
+        $employeeIds = Employee::select('employee_id')->get();
+        return $employeeIds;
+    }
+
+
 
     
 }

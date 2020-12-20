@@ -1,8 +1,8 @@
 <template>
   <div class="container">
 
-    <div class="row mt-3">
-      <div class="col-md-15">
+    <div class="row mt-12">
+      <div class="col-md-12">
         
       <!-- Default box -->
       <div class="card card-solid">

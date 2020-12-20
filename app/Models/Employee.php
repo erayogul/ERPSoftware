@@ -8,7 +8,10 @@ use app\Observers\EmpoloyeeObserver;
 
 class Employee extends Model
 {
+
     use HasFactory;
+
+    
 
 /**
      * The attributes that are mass assignable.

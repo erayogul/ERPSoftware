@@ -9,6 +9,8 @@ class Roles extends Model
 {
     use HasFactory;
 
+
+
     protected $fillable = [
         'isAdmin', 'stock_create', 'stock_view', 'stock_use', 'stock_edit',
         'stock_delete', 'welfare_create', 'welfare_view', 'welfare_edit', 'welfare_delete', 'employee_view_all',
