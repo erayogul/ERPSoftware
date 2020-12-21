@@ -143,8 +143,33 @@ export default {
 
     save() {
       if (this.editedIndex > -1) {
+        axios
+          .post("api/editDepartment", {
+            departmentID: this.editedItem.id,
+            departmentManager: this.editedItem.department_manager,
+            departmentName: this.editedItem.department_name,
+          })
+          .then(function (response) {
+            swal.fire("Updated!", "Department succesfuly updated..", "success");
+          })
+          .catch(function (error) {
+            swal.fire("Failed!", "Error.", "warning");
+          });
         Object.assign(this.desserts[this.editedIndex], this.editedItem);
       } else {
+        axios
+          .post("api/createDepartment", {
+            departmentID: this.editedItem.id,
+            departmentManager: this.editedItem.department_manager,
+            departmentName: this.editedItem.department_name,
+          })
+          .then(function (response) {
+            swal.fire("Created!", "Department succesfuly created.", "success");
+          })
+          .catch(function (error) {
+            swal.fire("Failed!", "Error.", "warning");
+          });
+
         this.desserts.push(this.editedItem);
       }
       this.close();
@@ -158,11 +183,25 @@ export default {
     },
 
     deleteItemConfirm() {
+      axios
+        .post("api/deleteDepartment", {
+          departmentID: this.desserts[this.editedIndex].id,
+          departmentManager: this.desserts[this.editedIndex].department_manager,
+          departmentName: this.desserts[this.editedIndex].department_name,
+        })
+        .then(function (response) {
+          swal.fire("Deleted!", "Department succesfuly deleted.", "success");
+        })
+        .catch(function (error) {
+          swal.fire("Failed!", "Error.", "warning");
+        });
+
       this.desserts.splice(this.editedIndex, 1);
       this.closeDelete();
     },
     editItem(item) {
       this.editedIndex = this.desserts.indexOf(item);
+      this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
 

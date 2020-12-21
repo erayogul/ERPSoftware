@@ -187,17 +187,25 @@ class UserController extends Controller
 
     public function createDepartment(Request $request)
     {
-        dd($request);
+        Departments::create([
+            'department_name' => $request['departmentName'],
+            'department_manager' => $request['departmentManager'],
+        ]);
+        return ['message' => "Success"];
     }
 
-    public function updateDepartment(Request $request)
+    public function editDepartment(Request $request)
     {
-        dd($request);
+        $department = Departments::where('id', $request->departmentID)->firstOrFail();
+        $department->update(['department_name' =>  $request->departmentName]);
+        return ['message' => "Success"];
     }
 
     public function deleteDepartment(Request $request)
     {
-        dd($request);
+        $department = Departments::where('id', $request->departmentID)->firstOrFail();
+        $department->delete();
+        return ['message' => "Success"];
     }
 
     public function getDepartment(Request $request)
